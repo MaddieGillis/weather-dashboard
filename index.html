@@ -10,12 +10,32 @@
 </head>
 <body>
     <header>
-        <h1>Weather</h1>
+        <h1>Weather 🌞</h1>
     </header>
     <main>
-        <input type="text" id="cityName" placeholder="City Name">
-        <button type="button" id="cityBtn">Search</button>
+
+        <div class="container">
+            <div class="current-info">
+                <div class="date-container">
+                    <div class="others" id="current-weather-items">
+                        <div class="weather-item">
+                            <p>Temp</p>
+                            <p>34</p>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <input type="text" id="cityInput" class="cityInput" placeholder="City Name">
+        <button type="button" id="searchBtn">Search</button>
+        <section id="searchSection">
+            <ul id="searchList">
+
+            </ul>
+        </section>
     </main>
-    
+    <script src="./assets/js/script.js"></script>
 </body>
 </html>

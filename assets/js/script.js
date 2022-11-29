@@ -16,6 +16,8 @@ var currentTempEl = document.getElementById('current-temp');
 
 
 //date function
+var days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']; 
+var months = ['Jan','Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
 setInterval(() => {
     var time = new Date();
@@ -23,9 +25,20 @@ setInterval(() => {
     var date = time.getDate();
     var day = time.getDay();
     
-
+    dateEl.textContent = days[day] + ', ' + date + ' ' + months[month]
      
 }, 1000);
+
+
+
+/*getWeatherData();
+function getWeatherData () {
+      navigator.geolocation.getCurrentPosition((success) => {
+        console.log(success);
+
+        var {latitude, longitude} = success.coords;
+      } )
+}*/
 
 
 

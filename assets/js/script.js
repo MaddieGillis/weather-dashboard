@@ -7,6 +7,25 @@ var sectionList = document.querySelector("#sectionList");
 var searchBtn = document.querySelector("#searchBtn");
 var cityInput = document.querySelector("#cityInput");
 var searchCities = [];
+var timeEl = document.getElementById('time');
+var dateEl = document.getElementById('date');
+var currentWeatherItemsEl = document.getElementById('current-weather-items');
+var weatherForecastEl = document.getElementById('weather-forecast');
+var currentTempEl = document.getElementById('current-temp');
+
+
+
+//date function
+
+setInterval(() => {
+    var time = new Date();
+    var month = time.getMonth();
+    var date = time.getDate();
+    var day = time.getDay();
+    
+
+     
+}, 1000);
 
 
 

@@ -25,6 +25,10 @@ Provide a short description explaining the what, why, and how of your project. U
 - What did you learn?
 My motivation for the project was to get familiar with utilizing server side APIs. I was able to mostly get the css to work and get the localstorage to store arrays of locations. I struggled with retrieving and displaying the information on the page. I am unfortunately having to submit this unfinished project but in the coming days I plan to return to properly display the weather information using fetch, and then retrieving the cities from the local storage and append them to the page.
 
+live website: https://maddiegillis.github.io/weather-dashboard/
+landing page:
+
+
 ## Credits
 
 Openweathermap.org for both the 5day forecast api and current weather api

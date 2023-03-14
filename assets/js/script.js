@@ -30,26 +30,40 @@ setInterval(() => {
     
 }, 1000);
 
+function convertKelvinToFahrenheit(kelvin) {
+    return ((kelvin - 273.15) * 1.8 + 32).toFixed(0) + "°F";
+  }
 
-function getCurrentWeather (cityName) {
+function getCurrentWeather(cityName) {
     var currentWeatherApi = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}`;
-    
+  
     fetch(currentWeatherApi)
-    .then((response) => {
+      .then((response) => {
         if (response.ok) {
-            return response.json()
-        } 
-    })
-    .then((data) => console.log(data));
-    displayTodayWeather(response);
-}
+          return response.json();
+        }
+      })
+      .then((data) => {
+        displayTodayWeather(data);
+      });
+  
+    function displayTodayWeather(data) {
+      var currentHumidity = data.main.humidity;
+      var currentTempKelvin = data.main.temp;
+      var currentTempFahrenheit = convertKelvinToFahrenheit(currentTempKelvin);
 
-function displayTodayWeather() {
-    currentHumidity = data.main.humidity;
-    console.log(currentHumidity);
+      todayTempEl.textContent = `${currentTempFahrenheit}`;
+      todayHumidityEl.textContent = `${currentHumidity}%`;
+      todayWindEl.textContent = `${data.wind.speed} MPH`;
+    }
+  }
+
+// function displayTodayWeather() {
+//     currentHumidity = data.main.humidity;
+//     console.log(currentHumidity);
 
 
-}
+// }
 
 
 
@@ -86,7 +100,7 @@ searchBtn.addEventListener("click", function() {
     //todayHumidityEl.textContent = currentHumidity;
     
     
-})
+});
 
 
 

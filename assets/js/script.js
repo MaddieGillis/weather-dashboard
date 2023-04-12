@@ -1,4 +1,3 @@
-// 
 var apiKey = '87192d2b0714c779e50e13cecd225c8a';
 var geoCodingApi = `http://api.openweathermap.org/geo/1.0/direct?q={city name},{state code},{country code}&limit=5&appid={apiKey}`;
 var searchList = document.querySelectorAll("#searchlist");
@@ -12,8 +11,10 @@ var currentWeatherItemsEl = document.getElementById('current-weather-items');
 var weatherForecastEl = document.getElementById('weather-forecast');
 var todayTempEl = document.getElementById('today-temp');
 var todayHumidityEl = document.getElementById('today-humidity');
-var todayWindEl = document.getElementById('current-wind');
-
+var todayWindEl = document.getElementById('today-wind');
+var todayIconEl = document.getElementById('today-icon');
+var todayDescriptionEl = document.getElementById('today-description');
+var currentCityEl = document.getElementById('current-city')
 
 
 //date function
@@ -51,10 +52,22 @@ function getCurrentWeather(cityName) {
       var currentHumidity = data.main.humidity;
       var currentTempKelvin = data.main.temp;
       var currentTempFahrenheit = convertKelvinToFahrenheit(currentTempKelvin);
+      var currentDescription = data.weather[0].description;
+      var currentCity = cityName;
+      //var currentIcon = data.weather.icon;
 
+      var currentIcon = data.weather[0].icon;
+      var iconUrl = `http://openweathermap.org/img/w/${currentIcon}.png`;
+      document.getElementById("weatherIcon").setAttribute("src", iconUrl);
       todayTempEl.textContent = `${currentTempFahrenheit}`;
       todayHumidityEl.textContent = `${currentHumidity}%`;
       todayWindEl.textContent = `${data.wind.speed} MPH`;
+      todayDescriptionEl.textContent = `${currentDescription}`;
+      currentCityEl.textContent = `${currentCity}`;
+      //todayIconEl.textContent = `${currentIcon}`;
+
+
+    
     }
   }
 
@@ -76,7 +89,8 @@ function getForecast (cityName) {
             return response.json()
         } 
     })
-    .then((data) => console.log(data));
+    
+    
 }
 
 

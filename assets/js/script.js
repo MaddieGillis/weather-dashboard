@@ -206,7 +206,6 @@ function getForecast(cityName) {
     
     document.getElementById('recentCities').innerHTML = recentCitiesHtml;
     
-    // Add click event listeners to each displayed city element
     var cityLinks = document.querySelectorAll('.city-link');
     cityLinks.forEach(function(cityLink) {
       cityLink.addEventListener('click', function() {
@@ -214,40 +213,10 @@ function getForecast(cityName) {
         getCurrentWeather(cityName);
         getForecast(cityName);
       });
+      cityLink.insertAdjacentHTML('afterend', '<br>');
     });
   }
   
-
-  // function showRecentCities() {
-  //   var recentCitiesDiv = document.getElementById("recentCities");
-  //   recentCitiesDiv.innerHTML = ""; // Clear previous list
-    
-  //   // Limit the number of recent cities displayed to 5
-  //   var numRecentCities = Math.min(5, recentCities.length);
-    
-  //   for (var i = 0; i < numRecentCities; i++) {
-  //     var cityDiv = document.createElement("div");
-  //     cityDiv.classList.add("recentCity");
-  //     cityDiv.textContent = recentCities[i];
-  //     cityDiv.addEventListener("click", function() {
-  //       searchWeather(this.textContent);
-  //     });
-  //     recentCitiesDiv.appendChild(cityDiv);
-  //   }
-  // }
-
-
-  // function showRecentCities() {
-  //   var recentCities = JSON.parse(localStorage.getItem('searchList')) || [];
-  //   var recentCitiesHtml = '';
-    
-  //   for (var i = recentCities.length - 1; i >= 0 && i >= recentCities.length - 5; i--) {
-  //     recentCitiesHtml += `<a href="#" class="city-link">${recentCities[i]}</a>`;
-  //   }
-    
-  //   document.getElementById('recentCities').innerHTML = recentCitiesHtml;
-    
-  // }
 
 
 searchBtn.addEventListener("click", function() {

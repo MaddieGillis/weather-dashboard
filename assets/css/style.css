@@ -30,6 +30,16 @@ body{
     flex-wrap: wrap;
 }
 
+a {
+    color: var(--pastel-orange);
+    text-decoration: none;
+    }
+    
+    a:hover {
+    color: var(--lilac);
+    text-decoration: underline;
+    }
+
 .date-container{
     font-weight: 100;
 }

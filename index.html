@@ -13,10 +13,9 @@
             <h1>Weather 🌞</h1>
             <input type="text" id="cityInput" class="cityInput" placeholder="City Name">
             <button type="button" id="searchBtn">Search</button>
-            <section id="searchSection">
-                <ul id="searchList">
-            
-                </ul>
+            <section id="search-section">
+                 <div id="recentCities"></div>
+            </section>
         </header>
         <main>
 
@@ -28,10 +27,11 @@
                 <div class="date" id="date">
                     Tuesday, November 29th
                 </div>
+                <div class="current-city" id="current-city"></div>
                     <div class="others" id="current-weather-items">
                         <div class="weather-item">
-                            <div><img src="http://openweathermap.org/img/wn/10d@2x.png" alt="Icon of current weather" class="weather-icon"> </div>
-                            <div>rainy</div>
+                            <div><img id="weatherIcon" alt="weather icon"> </div>
+                            <div id="today-description">rainy</div>
 
                         </div>
 
@@ -74,27 +74,27 @@
             <div class="today" id="current-weather">
 
                 <div class="five-day" id="five-day">
-                    <div class="day">Monday</div>
+                    <div class="day" id="day-1">Monday</div>
 
                     <div class="weather-item">
-                        <div><img src="http://openweathermap.org/img/wn/10d@2x.png" alt="Icon of current weather" class="weather-icon"> </div>
-                        <div>rainy</div>
+                        <div><img class="weather-icon" id="day1-icon" alt="weather icon"> </div>
+                        <div id="day1-description">rainy</div>
                     
                     </div>
                 
-                    <div class="weather-item">
+                    <div class="weather-item" id="day1-temp">
                         <div>Temp</div>
                         <div>34</div>
                     
                     </div>
 
-                    <div class="weather-item">
-                        <div>humidity</div>
+                    <div class="weather-item" id="day1-humidity">
+                        <div>Humidity</div>
                         <div>something</div>
                     
                     </div>
                 
-                    <div class="weather-item">
+                    <div class="weather-item" id="day1-wind">
                         <div>Wind Speed</div>
                         <div>34mph</div>
                     
@@ -104,27 +104,27 @@
             </div>
 
             <div class="weather-forecast" id="weather-forecast">
-                <div class="day">Tuesday</div>
+                <div class="day" id="day-2">Tuesday</div>
 
                 <div class="weather-item">
-                    <div><img src="http://openweathermap.org/img/wn/10d@2x.png" alt="Icon of current weather" class="weather-icon"> </div>
-                    <div>rainy</div>
+                    <div><img class="weather-icon" id="day2-icon" alt="weather icon" class="weather-icon"> </div>
+                    <div id="day2-description">rainy</div>
 
                 </div>
 
-                <div class="weather-item">
+                <div class="weather-item" id="day2-temp">
                     <div>Temp</div>
                     <div>34</div>
 
                 </div>
 
-                <div class="weather-item">
-                    <div>humidity</div>
+                <div class="weather-item" id="day2-humidity">
+                    <div>Humidity</div>
                     <div>something</div>
 
                 </div>
 
-                <div class="weather-item">
+                <div class="weather-item" id="day2-wind">
                     <div>Wind Speed</div>
                     <div>34mph</div>
 
@@ -134,27 +134,27 @@
             </div>
 
             <div class="weather-forecast" id="weather-forecast">
-                <div class="day">Tuesday</div>
+                <div class="day" id="day-3">Tuesday</div>
 
                 <div class="weather-item">
-                    <div><img src="http://openweathermap.org/img/wn/10d@2x.png" alt="Icon of current weather" class="weather-icon"> </div>
-                    <div>rainy</div>
+                    <div><img class="weather-icon" id="day3-icon" alt="weather icon"> </div>
+                    <div id="day3-description">rainy</div>
 
                 </div>
 
-                <div class="weather-item">
+                <div class="weather-item" id="day3-temp">
                     <div>Temp</div>
                     <div>34</div>
 
                 </div>
 
-                <div class="weather-item">
-                    <div>humidity</div>
+                <div class="weather-item" id="day3-humidity">
+                    <div>Humidity</div>
                     <div>something</div>
 
                 </div>
 
-                <div class="weather-item">
+                <div class="weather-item" id="day3-wind">
                     <div>Wind Speed</div>
                     <div>34mph</div>
 
@@ -164,27 +164,27 @@
             </div>
 
             <div class="weather-forecast" id="weather-forecast">
-                <div class="day">Tuesday</div>
+                <div class="day" id="day-4">Tuesday</div>
 
                 <div class="weather-item">
-                    <div><img src="http://openweathermap.org/img/wn/10d@2x.png" alt="Icon of current weather" class="weather-icon"> </div>
-                    <div>rainy</div>
+                    <div><img class="weather-icon" id="day4-icon" alt="weather icon" class="weather-icon"> </div>
+                    <div id="day4-description">rainy</div>
 
                 </div>
 
-                <div class="weather-item">
+                <div class="weather-item" id="day4-temp">
                     <div>Temp</div>
                     <div>34</div>
 
                 </div>
 
-                <div class="weather-item">
-                    <div>humidity</div>
+                <div class="weather-item" id="day4-humidity">
+                    <div>Humidity</div>
                     <div>something</div>
 
                 </div>
 
-                <div class="weather-item">
+                <div class="weather-item" id="day4-wind">
                     <div>Wind Speed</div>
                     <div>34mph</div>
 
@@ -194,27 +194,27 @@
             </div>
 
             <div class="weather-forecast" id="weather-forecast">
-                <div class="day">Tuesday</div>
+                <div class="day" id="day-5">Tuesday</div>
 
                 <div class="weather-item">
-                    <div><img src="http://openweathermap.org/img/wn/10d@2x.png" alt="Icon of current weather" class="weather-icon"> </div>
-                    <div>rainy</div>
+                    <div><img class="weather-icon" id="day5-icon" alt="weather icon" class="weather-icon"> </div>
+                    <div id="day5-description">rainy</div>
 
                 </div>
 
-                <div class="weather-item">
+                <div class="weather-item" id="day5-temp">
                     <div>Temp</div>
                     <div>34</div>
 
                 </div>
 
-                <div class="weather-item">
-                    <div>humidity</div>
+                <div class="weather-item" id="day5-humidity">
+                    <div>Humidity</div>
                     <div>something</div>
 
                 </div>
 
-                <div class="weather-item">
+                <div class="weather-item" id="day5-wind">
                     <div>Wind Speed</div>
                     <div>34mph</div>
 

@@ -124,8 +124,8 @@ function getCurrentWeather(cityName) {
 //             return response.json()
 //         } 
 //     })
-    
-    
+
+
 // }
 
 function getForecast(cityName) {
@@ -158,34 +158,96 @@ function getForecast(cityName) {
       day2Humidity.lastElementChild.textContent = `${forecast[1].main.humidity}%`;
       day2Wind.lastElementChild.textContent = `${forecast[1].wind.speed} m/s`;
 
+      //Day 3
+      var day3TempCelsius = forecast[2].main.temp;
+      var day3TempFahrenheit = convertCelsiusToFahrenheit(day3TempCelsius)
       day3El.textContent = new Date(forecast[2].dt_txt).toLocaleDateString("en-US", { weekday: "long" });
       day3Description.textContent = forecast[2].weather[0].description;
       day3Icon.src = `http://openweathermap.org/img/w/${forecast[2].weather[0].icon}.png`;
-      day3Temp.lastElementChild.textContent = `${Math.round(forecast[2].main.temp)}°C`;
+      day3Temp.lastElementChild.textContent = `${day3TempFahrenheit}`;
       day3Humidity.lastElementChild.textContent = `${forecast[2].main.humidity}%`;
       day3Wind.lastElementChild.textContent = `${forecast[2].wind.speed} m/s`;
-
+      
+      //Day 4
+      var day4TempCelsius = forecast[3].main.temp;
+      var day4TempFahrenheit = convertCelsiusToFahrenheit(day4TempCelsius)
       day4El.textContent = new Date(forecast[3].dt_txt).toLocaleDateString("en-US", { weekday: "long" });
       day4Description.textContent = forecast[3].weather[0].description;
       day4Icon.src = `http://openweathermap.org/img/w/${forecast[3].weather[0].icon}.png`;
-      day4Temp.lastElementChild.textContent = `${Math.round(forecast[3].main.temp)}°C`;
+      day4Temp.lastElementChild.textContent = `${day4TempFahrenheit}`;
       day4Humidity.lastElementChild.textContent = `${forecast[3].main.humidity}%`;
       day4Wind.lastElementChild.textContent = `${forecast[3].wind.speed} m/s`;
-
+      
+      //Day 5
+      var day5TempCelsius = forecast[4].main.temp;
+      var day5TempFahrenheit = convertCelsiusToFahrenheit(day5TempCelsius)
       day5El.textContent = new Date(forecast[4].dt_txt).toLocaleDateString("en-US", { weekday: "long" });
       day5Description.textContent = forecast[4].weather[0].description;
       day5Icon.src = `http://openweathermap.org/img/w/${forecast[4].weather[0].icon}.png`;
-      day5Temp.lastElementChild.textContent = `${Math.round(forecast[4].main.temp)}°C`;
+      day5Temp.lastElementChild.textContent = `${day5TempFahrenheit}`;
       day5Humidity.lastElementChild.textContent = `${forecast[4].main.humidity}%`;
       day5Wind.lastElementChild.textContent = `${forecast[4].wind.speed} m/s`;
 
-
+      
 
 
     
     })
     .catch(error => console.log(error));
-}
+  }
+
+  function showRecentCities() {
+    var recentCities = JSON.parse(localStorage.getItem('searchList')) || [];
+    var recentCitiesHtml = '';
+    
+    for (var i = recentCities.length - 1; i >= 0 && i >= recentCities.length - 5; i--) {
+      recentCitiesHtml += `<a href="#" class="city-link">${recentCities[i]}</a>`;
+    }
+    
+    document.getElementById('recentCities').innerHTML = recentCitiesHtml;
+    
+    // Add click event listeners to each displayed city element
+    var cityLinks = document.querySelectorAll('.city-link');
+    cityLinks.forEach(function(cityLink) {
+      cityLink.addEventListener('click', function() {
+        var cityName = cityLink.textContent;
+        getCurrentWeather(cityName);
+        getForecast(cityName);
+      });
+    });
+  }
+  
+
+  // function showRecentCities() {
+  //   var recentCitiesDiv = document.getElementById("recentCities");
+  //   recentCitiesDiv.innerHTML = ""; // Clear previous list
+    
+  //   // Limit the number of recent cities displayed to 5
+  //   var numRecentCities = Math.min(5, recentCities.length);
+    
+  //   for (var i = 0; i < numRecentCities; i++) {
+  //     var cityDiv = document.createElement("div");
+  //     cityDiv.classList.add("recentCity");
+  //     cityDiv.textContent = recentCities[i];
+  //     cityDiv.addEventListener("click", function() {
+  //       searchWeather(this.textContent);
+  //     });
+  //     recentCitiesDiv.appendChild(cityDiv);
+  //   }
+  // }
+
+
+  // function showRecentCities() {
+  //   var recentCities = JSON.parse(localStorage.getItem('searchList')) || [];
+  //   var recentCitiesHtml = '';
+    
+  //   for (var i = recentCities.length - 1; i >= 0 && i >= recentCities.length - 5; i--) {
+  //     recentCitiesHtml += `<a href="#" class="city-link">${recentCities[i]}</a>`;
+  //   }
+    
+  //   document.getElementById('recentCities').innerHTML = recentCitiesHtml;
+    
+  // }
 
 
 searchBtn.addEventListener("click", function() {
@@ -205,42 +267,13 @@ searchBtn.addEventListener("click", function() {
     
     document.getElementById('cityInput').value = "";
 
-    //todayHumidityEl.textContent = currentHumidity;
+    //searchedCitiesDisplay();
+    showRecentCities();
     
     
 });
 
 
 
-//this needs to be done on load as it's to append the page with buttons of past searches
-/* for (i = 0; i < 5; i++) {
-    var li = document.createElement("li");
-    li.textContent = `searchCities`;
-    searchList.append(li);
- }*/
- 
 
 
-
-
-    /*var cityList = document.getElementById("searchList");
-    var searchedCity = document.createElement("li");
-
-    searchedCity.appendChild(cityName);
-    cityList.appendChild(searchedCity);*/
-
-
-/*
-
-//fetch api for five day forecast
-fetch(fiveDayApi)
-.then((response) => response.json())
-.then((data) => console.log(data));/
-
-//fetch api for cordinates to change city into lat and lon
-fetch(geoCodingApi)
-.then((response) => response.json())
-.then((data) => console.log(data));
-
-console.log(geoCodingApi);
-*/

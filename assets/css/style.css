@@ -144,6 +144,72 @@ body{
     font-weight: 100;
 }
 
+header #searchSection #recentCities {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.5);
+    padding: 10px;
+    border-radius: 10px;
+    margin-top: 10px;
+  }
+
+/* #searchSection {
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 5px;
+    padding: 10px;
+    margin-top: 20px;
+  }
+  
+  #recentCities {
+    display: flex;
+    flex-wrap: wrap;
+    list-style-type: none;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+  } */
+  
+  #recentCities li {
+    flex-direction: row;
+    margin-right: 10px;
+    font-size: 18px;
+    color: var(--text-color);
+  }
+  
+
+/* header #search-section {
+    font-family: var(--font-choice);
+    color: var(--text-color);
+    background-color: var(--gray);
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header #search-section li {
+    font-family: var(--font-choice);
+    color: var(--text-color);
+    background-color: var(--gray);
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style-type: none;
+}
+
+#searchSection #recentCities {
+    font-family: var(--font-choice) !important;
+    color: var(--text-color) !important;
+} */
+
 @media only screen and (max-width: 730px) {
     .future-forecast{
         justify-content: start;
